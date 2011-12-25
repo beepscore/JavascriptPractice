@@ -12,17 +12,8 @@ var dog = myFunction(2, 3);
 console.log("dog = " + dog);
 
 
-// assignment = not equality ==
-if (a = 3)
-{
-    alert("a = 3 returns true");
-    console.warn("a = 3 returns true");
-}
-
-
 function testZeroIsFalse()
 {
-
     if (!0)
     {
         console.debug("testZeroIsFalse pass");
@@ -52,6 +43,43 @@ function testZeroIsFalse()
     }  
 }
 
+
+function testCompareThreeToBoolean()
+{
+    if (3)
+    {
+        console.debug("testCompareThreeToBoolean pass");
+    } else
+    {
+        console.error("testCompareThreeToBoolean fail");
+    }
+    
+    if (3 != true)
+    {
+        console.debug("testCompareThreeToBoolean pass");
+    } else
+    {
+        console.error("testCompareThreeToBoolean fail");
+    }
+    
+    var myVar;
+    // assignment = not equality ==
+    if ((myVar = 3) != true)
+    {
+        console.debug("testCompareThreeToBoolean pass");
+    } else
+    {
+        console.error("testCompareThreeToBoolean fail");
+    }
+    
+    if ((myVar = 3) != false)
+    {
+        console.debug("testCompareThreeToBoolean pass");
+    } else
+    {
+        console.error("testCompareThreeToBoolean fail");
+    }
+}
 
 
 function testNumber()
@@ -85,6 +113,8 @@ function testNaN()
 
 // call test functions
 testZeroIsFalse();
+
+testCompareThreeToBoolean();
 
 testNumber();
 
