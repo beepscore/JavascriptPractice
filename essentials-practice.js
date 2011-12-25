@@ -26,3 +26,38 @@ if (b = 0)
     console.info("b = 0 returns false");
 }
 
+
+function testNumber()
+{
+    // in JavaScript all numbers are 64 bit floating point.
+    var fiveNumber = Number("5");
+    var expectedResult = 5;
+    if (expectedResult == fiveNumber)
+    {
+        console.log("testNumber pass");
+    } else
+    {
+        console.error("testNumber fail");
+    }    
+}
+
+
+function testNaN()
+{
+    // Number method attempts to explicitly convert argument to a number. It may return NaN.
+    var actualResult = Number("foo");
+    if ( isNaN(actualResult) )
+    {
+        console.log("testNaN pass");
+    } else
+    {
+        console.error("testNaN fail");
+    }
+}
+
+// call test functions
+testNumber();
+
+testNaN();
+
+
