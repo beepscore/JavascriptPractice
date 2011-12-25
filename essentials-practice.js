@@ -21,7 +21,7 @@ function testZeroIsFalse()
     {
         console.error("testZeroIsFalse fail");
     }
-
+    
     var expectedResult = false;
     if (0 == expectedResult)
     {
@@ -104,10 +104,23 @@ function testNaN()
     // Reference:
     // http://getfirebug.com/wiki/index.php/Console_API
     console.assert(!isNaN(2), "testNaN fail");
-
+    
     // Number method attempts to explicitly convert argument to a number. It may return NaN.
     var actualResult = Number("foo");
     console.assert(isNaN(actualResult), "testNaN fail");
+}
+
+
+function testScope()
+{    
+    // An important difference from other languages like Java is that in JavaScript, blocks do not have scope; only functions have scope. So if a variable is defined using var in a compound statement (for example inside an if control structure), it will be visible to the entire function.
+    // https://developer.mozilla.org/en/JavaScript/A_re-introduction_to_JavaScript
+    
+    if (true)
+    {
+        var numberScopeOutsideBlock = 3;
+    }
+    console.assert( (3 == numberScopeOutsideBlock), "testScope fail");
 }
 
 
@@ -120,4 +133,4 @@ testNumber();
 
 testNaN();
 
-
+testScope();
