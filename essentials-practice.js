@@ -12,11 +12,13 @@ var dog = myFunction(2, 3);
 console.log("dog = " + dog);
 
 
+// assignment = not equality ==
 if (a = 3)
 {
     alert("a = 3 returns true");
     console.warn("a = 3 returns true");
 }
+
 
 if (b = 0)
 {
@@ -34,7 +36,7 @@ function testNumber()
     var expectedResult = 5;
     if (expectedResult == fiveNumber)
     {
-        console.log("testNumber pass");
+        console.debug("testNumber pass");
     } else
     {
         console.error("testNumber fail");
@@ -46,14 +48,15 @@ function testNaN()
 {
     // Number method attempts to explicitly convert argument to a number. It may return NaN.
     var actualResult = Number("foo");
-    if ( isNaN(actualResult) )
-    {
-        console.log("testNaN pass");
-    } else
-    {
-        console.error("testNaN fail");
-    }
+    
+    // if assertion fails, assert logs and throws an exception
+    // if assertion passes, assert doesn't log
+    // Reference:
+    // http://getfirebug.com/wiki/index.php/Console_API
+    console.assert(isNaN(actualResult), "testNaN fail");
+    console.assert(isNaN(2), "testNaN fail");
 }
+
 
 // call test functions
 testNumber();
